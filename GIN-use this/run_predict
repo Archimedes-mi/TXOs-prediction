@@ -1,0 +1,12 @@
+import os
+import warnings
+
+# 忽略警告
+warnings.filterwarnings("ignore", category=UserWarning, module="torch.optim.lr_scheduler")
+
+# 运行预测
+if __name__ == "__main__":
+    # 使用hidden_dim=100来匹配保存的模型结构
+    command = "python main.py --load_model --model_name gin_optimal_model.pt --predict --predict_file TXs.csv --hidden_dim 100"
+    print(f"执行命令: {command}")
+    os.system(command)
